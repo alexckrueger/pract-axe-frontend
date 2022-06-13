@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
-import UsersNew from "../views/UsersNew.vue";
+import UsersSignup from "../views/UsersSignup.vue";
+import UsersLogin from "../views/UsersLogin.vue";
+import UsersLogout from "../views/UsersLogout.vue";
 import UsersShow from "../views/UsersShow.vue";
 import TrainingsIndex from "../views/TrainingsIndex.vue";
 import TrainingsEdit from "../views/TrainingsEdit.vue";
@@ -12,9 +14,19 @@ const routes = [
     component: HomeView,
   },
   {
-    path: "/users/new",
-    name: "UsersNew",
-    component: UsersNew,
+    path: "/signup",
+    name: "UsersSignup",
+    component: UsersSignup,
+  },
+  {
+    path: "/login",
+    name: "UsersLogin",
+    component: UsersLogin,
+  },
+  {
+    path: "/logout",
+    name: "UsersLogout",
+    component: UsersLogout,
   },
   {
     path: "/users/:id",
