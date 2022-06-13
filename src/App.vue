@@ -2,7 +2,13 @@
   <nav>
     <router-link to="/">Home</router-link>
     |
-    <router-link to="/about">About</router-link>
+    <router-link to="/users/new">Users New</router-link>
+    |
+    <router-link to="/users/1">Users Show</router-link>
+    |
+    <router-link to="/trainings">Trainings Index</router-link>
+    |
+    <router-link to="/trainings/1/edit">Trainings Edit</router-link>
   </nav>
   <router-view />
 </template>

@@ -2,7 +2,7 @@
 export default {
   data: function () {
     return {
-      message: "Home",
+      message: "Trainings Edit",
     };
   },
   created: function () {},
