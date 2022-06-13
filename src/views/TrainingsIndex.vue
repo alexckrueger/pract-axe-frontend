@@ -1,18 +1,32 @@
 <script>
+import axios from "axios";
+
 export default {
   data: function () {
     return {
-      message: "Trainings Index",
+      trainings: {},
     };
   },
-  created: function () {},
+  created: function () {
+    axios
+      .get(`/trainings.json`)
+      .then((response) => {
+        this.trainings = response.data;
+        console.log(response.data);
+      })
+      .catch((error) => {
+        if (error.response.status == 401) {
+          this.$router.push("/login");
+        }
+      });
+  },
   methods: {},
 };
 </script>
 
 <template>
-  <div class="home">
-    <h1>{{ message }}</h1>
+  <div class="TrainingsIndex">
+    <p>{{ trainings }}</p>
   </div>
 </template>
 

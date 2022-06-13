@@ -15,17 +15,17 @@ const routes = [
   },
   {
     path: "/signup",
-    name: "UsersSignup",
+    name: "signup",
     component: UsersSignup,
   },
   {
     path: "/login",
-    name: "UsersLogin",
+    name: "login",
     component: UsersLogin,
   },
   {
     path: "/logout",
-    name: "UsersLogout",
+    name: "logout",
     component: UsersLogout,
   },
   {
