@@ -5,6 +5,7 @@ export default {
   data: function () {
     return {
       trainings: {},
+      newTraining: { name: "" },
     };
   },
   created: function () {
@@ -20,13 +21,21 @@ export default {
         }
       });
   },
-  methods: {},
+  methods: {
+    createTraining: function () {
+      console.log("oi oi  oi");
+      // Creates a training with a generic name of today's date
+      // User can update the training name on TrainingsEdit
+      // Redirects user to the (newly created) trainings edit view
+    },
+  },
 };
 </script>
 
 <template>
   <div class="TrainingsIndex">
     <h1>My Trainings</h1>
+    <button v-on:click="createTraining()">New Training</button>
     <table>
       <tr>
         <th>Training</th>
