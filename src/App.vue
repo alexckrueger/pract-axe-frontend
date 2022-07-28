@@ -1,20 +1,34 @@
+<script>
+export default {
+  data: function () {
+    return {
+      userId: "",
+      isLoggedIn: "",
+    };
+  },
+  watch: {
+    $route: function () {
+      this.userId = localStorage.userId;
+      this.isLoggedIn = !!localStorage.userId;
+    },
+  },
+};
+</script>
+
 <template>
   <nav>
-    <router-link to="/">Home</router-link>
-    |
-    <router-link to="/signup">Signup</router-link>
-    |
-    <router-link to="/login">Login</router-link>
-    |
-    <router-link to="/logout">Logout</router-link>
-    |
-    <router-link to="/users/1">Users Show</router-link>
-    |
-    <router-link to="/trainings">Trainings Index</router-link>
-    |
-    <router-link to="/trainings/1/edit">Trainings Edit</router-link>
-    |
-    <router-link to="/trainings/1">Trainings Show</router-link>
+    <div v-if="!isLoggedIn">
+      <router-link to="/signup">Signup</router-link>
+      |
+      <router-link to="/login">Login</router-link>
+    </div>
+    <div v-else>
+      <router-link to="/logout">Logout</router-link>
+      |
+      <router-link :to="`/users/${userId}`">My Profile</router-link>
+      |
+      <router-link to="/trainings">My Trainings</router-link>
+    </div>
   </nav>
   <router-view />
 </template>

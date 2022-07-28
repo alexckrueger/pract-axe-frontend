@@ -5,7 +5,13 @@ export default {
       message: "Home",
     };
   },
-  created: function () {},
+  created: function () {
+    if (localStorage.userId) {
+      this.$router.push(`/users/${localStorage.userId}`);
+    } else {
+      this.$router.push("/login");
+    }
+  },
   methods: {},
 };
 </script>

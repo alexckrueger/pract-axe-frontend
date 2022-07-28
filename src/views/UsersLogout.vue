@@ -6,7 +6,7 @@ export default {
     delete axios.defaults.headers.common["Authorization"];
     localStorage.removeItem("jwt");
     localStorage.removeItem("userId");
-    this.$router.push("/");
+    this.$router.push("/login");
   },
 };
 </script>
