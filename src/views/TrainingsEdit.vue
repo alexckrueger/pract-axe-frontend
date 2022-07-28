@@ -28,6 +28,9 @@ export default {
         return "No";
       }
     },
+    addThrow: function (throwPoints) {
+      console.log(throwPoints);
+    },
   },
 };
 </script>
@@ -35,18 +38,22 @@ export default {
 <template>
   <div class="TrainingsEdit">
     <h1>{{ training.name }}</h1>
-    <!-- <button>Update Training Name</button> -->
-    <!-- Figure out how I want users to be able to change the training name -->
-    <p>Average score per axe: {{ training.average_axe }}</p>
-    <div v-if="training.hatchet_throws.throw_count > 0">
-      <p>Hatchet throws: {{ training.hatchet_throws.throw_count }}</p>
-    </div>
-    <div v-if="training.big_axe_throws.throw_count > 0">
-      <p>Big Axe throws: {{ training.big_axe_throws.throw_count }}</p>
-    </div>
 
-    <!-- Move this to TrainingsShow -->
-    <table>
+    <input type="checkbox" />
+    Big Axe
+    <br />
+    <input type="checkbox" />
+    Clutch Called
+    <br />
+    <button>0</button>
+    <button>1</button>
+    <button>3</button>
+    <button>5</button>
+    <button>7</button>
+
+    <br />
+
+    <table class="table">
       <thead>
         <tr>
           <th></th>
@@ -86,7 +93,7 @@ export default {
 
     <br />
 
-    <table>
+    <table class="table">
       <thead>
         <tr>
           <th>Throw</th>
