@@ -35,6 +35,7 @@ export default {
 <template>
   <div class="TrainingsShow">
     <h1>{{ training.name }}</h1>
+    <router-link :to="`/trainings/${this.$route.params.id}/edit`">Continue Training</router-link>
 
     <table class="table">
       <thead>
@@ -83,7 +84,6 @@ export default {
           <th>Points</th>
           <th>Throw type</th>
           <th>Clutch called</th>
-          <th>Delete</th>
         </tr>
       </thead>
       <tbody>

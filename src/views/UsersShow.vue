@@ -28,6 +28,7 @@ export default {
   <div class="UsersShow">
     <h1>{{ user.name }}</h1>
     <p>{{ user.email }}</p>
+    <router-link to="/trainings">My Trainings</router-link>
     <div v-if="user.count_of_trainings > 0">
       <h2>My stats</h2>
       <p>Training Sessions: {{ user.count_of_trainings }}</p>

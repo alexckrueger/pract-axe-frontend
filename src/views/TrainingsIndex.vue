@@ -6,6 +6,7 @@ export default {
     return {
       trainings: {},
       newTraining: { name: "" },
+      errorMessage: "",
     };
   },
   created: function () {
@@ -23,10 +24,14 @@ export default {
   },
   methods: {
     createTraining: function () {
-      console.log("oi oi  oi");
-      // Creates a training with a generic name of today's date
-      // User can update the training name on TrainingsEdit
-      // Redirects user to the (newly created) trainings edit view
+      if (this.newTraining.name) {
+        axios.post(`/trainings`, this.newTraining).then((response) => {
+          console.log(response.data);
+          this.$router.push(`/trainings/${response.data.id}/edit`);
+        });
+      } else {
+        this.errorMessage = "You must name your training!";
+      }
     },
   },
 };
@@ -35,7 +40,10 @@ export default {
 <template>
   <div class="TrainingsIndex">
     <h1>My Trainings</h1>
-    <button v-on:click="createTraining()">New Training</button>
+    <input v-model="newTraining.name" />
+    <button v-on:click="createTraining()" placeholder="Training Name">Start New Training</button>
+    <p v-if="errorMessage">{{ errorMessage }}</p>
+
     <table>
       <tr>
         <th>Training</th>
@@ -50,7 +58,7 @@ export default {
         <th>BA Clutch Accuracy</th>
       </tr>
       <tr v-for="training in trainings" v-bind:key="training.id">
-        <router-link :to="`/trainings/${training.id}/edit`">
+        <router-link :to="`/trainings/${training.id}`">
           <td class="clickable">{{ training.name }}</td>
         </router-link>
         <td>{{ training.average_axe }}</td>
