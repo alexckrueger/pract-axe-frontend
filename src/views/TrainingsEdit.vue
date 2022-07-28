@@ -40,6 +40,15 @@ export default {
 
       axios.post(`/throws`, newThrow).then((response) => {
         console.log(response.data);
+        this.training.throws.push(response.data);
+      });
+    },
+    deleteThrow: function (axeThrow) {
+      console.log(axeThrow);
+      axios.delete(`/throws/${axeThrow.id}`).then((response) => {
+        console.log(response.data);
+        var index = this.training.throws.indexOf(axeThrow);
+        this.training.throws.splice(index, 1);
       });
     },
   },
@@ -111,6 +120,7 @@ export default {
           <th>Points</th>
           <th>Throw type</th>
           <th>Clutch called</th>
+          <th>Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -121,6 +131,7 @@ export default {
           </td>
           <td>{{ throwTypeName(axeThrow) }}</td>
           <td>{{ clutchCalledName(axeThrow) }}</td>
+          <td><button v-on:click="deleteThrow(axeThrow)">x</button></td>
         </tr>
       </tbody>
     </table>
