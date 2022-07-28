@@ -6,6 +6,7 @@ import UsersLogout from "../views/UsersLogout.vue";
 import UsersShow from "../views/UsersShow.vue";
 import TrainingsIndex from "../views/TrainingsIndex.vue";
 import TrainingsEdit from "../views/TrainingsEdit.vue";
+import TrainingsShow from "../views/TrainingsShow.vue";
 
 const routes = [
   {
@@ -42,6 +43,11 @@ const routes = [
     path: "/trainings/:id/edit",
     name: "TrainingsEdit",
     component: TrainingsEdit,
+  },
+  {
+    path: "/trainings/:id",
+    name: "TrainingsShow",
+    component: TrainingsShow,
   },
 ];
 

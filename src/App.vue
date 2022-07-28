@@ -13,6 +13,8 @@
     <router-link to="/trainings">Trainings Index</router-link>
     |
     <router-link to="/trainings/1/edit">Trainings Edit</router-link>
+    |
+    <router-link to="/trainings/1">Trainings Show</router-link>
   </nav>
   <router-view />
 </template>
