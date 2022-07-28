@@ -77,6 +77,9 @@ export default {
 
     <br />
 
+    <a href="">Share with a friend! (coming soon)</a>
+    <!-- Some 3rd party library that shares a custom image/text with a text message? -->
+
     <table class="table">
       <thead>
         <tr>

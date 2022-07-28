@@ -73,6 +73,8 @@ export default {
 
     <br />
 
+    <router-link :to="`/trainings/${training.id}`">Finish Training</router-link>
+
     <table class="table">
       <thead>
         <tr>
