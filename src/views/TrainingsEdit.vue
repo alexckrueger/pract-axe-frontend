@@ -40,7 +40,7 @@ export default {
 
       axios.post(`/throws`, newThrow).then((response) => {
         console.log(response.data);
-        this.training.throws.push(response.data);
+        this.training.throws.unshift(response.data);
       });
     },
     deleteThrow: function (axeThrow) {
@@ -70,46 +70,6 @@ export default {
     <button v-on:click="addThrow(3)">3</button>
     <button v-on:click="addThrow(5)">5</button>
     <button v-on:click="addThrow(7)">7</button>
-
-    <br />
-
-    <table class="table">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Hatchet</th>
-          <th>Big Axe</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Throw Count</td>
-          <td>{{ training.hatchet_throws.throw_count }}</td>
-          <td>{{ training.big_axe_throws.throw_count }}</td>
-        </tr>
-        <tr>
-          <td>Average Axe</td>
-          <td v-if="training.hatchet_throws.throw_count > 0">{{ training.hatchet_throws.average_axe }}</td>
-          <td v-else>-</td>
-          <td v-if="training.big_axe_throws.throw_count > 0">{{ training.big_axe_throws.average_axe }}</td>
-          <td v-else>-</td>
-        </tr>
-        <tr>
-          <td>Bullseyes</td>
-          <td v-if="training.hatchet_throws.bullseye_accuracy > 0">{{ training.hatchet_throws.bullseye_accuracy }}%</td>
-          <td v-else>-</td>
-          <td v-if="training.big_axe_throws.bullseye_accuracy > 0">{{ training.big_axe_throws.bullseye_accuracy }}%</td>
-          <td v-else>-</td>
-        </tr>
-        <tr>
-          <td>Clutches</td>
-          <td v-if="training.hatchet_throws.clutch_accuracy > 0">{{ training.hatchet_throws.clutch_accuracy }}%</td>
-          <td v-else>-</td>
-          <td v-if="training.big_axe_throws.clutch_accuracy > 0">{{ training.big_axe_throws.clutch_accuracy }}%</td>
-          <td v-else>-</td>
-        </tr>
-      </tbody>
-    </table>
 
     <br />
 
