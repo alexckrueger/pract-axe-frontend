@@ -5,6 +5,8 @@ export default {
   data: function () {
     return {
       training: {},
+      callingClutch: false,
+      throwingBigAxe: false,
     };
   },
   created: function () {
@@ -29,7 +31,16 @@ export default {
       }
     },
     addThrow: function (throwPoints) {
-      console.log(throwPoints);
+      var newThrow = {};
+      newThrow.points = throwPoints;
+      newThrow.clutch_called = this.callingClutch;
+      newThrow.big_axe = this.throwingBigAxe;
+      newThrow.training_id = this.$route.params.id;
+      console.log(newThrow);
+
+      axios.post(`/throws`, newThrow).then((response) => {
+        console.log(response.data);
+      });
     },
   },
 };
@@ -39,17 +50,17 @@ export default {
   <div class="TrainingsEdit">
     <h1>{{ training.name }}</h1>
 
-    <input type="checkbox" />
+    <input type="checkbox" v-model="throwingBigAxe" />
     Big Axe
     <br />
-    <input type="checkbox" />
+    <input type="checkbox" v-model="callingClutch" />
     Clutch Called
     <br />
-    <button>0</button>
-    <button>1</button>
-    <button>3</button>
-    <button>5</button>
-    <button>7</button>
+    <button v-on:click="addThrow(0)">0</button>
+    <button v-on:click="addThrow(1)">1</button>
+    <button v-on:click="addThrow(3)">3</button>
+    <button v-on:click="addThrow(5)">5</button>
+    <button v-on:click="addThrow(7)">7</button>
 
     <br />
 
