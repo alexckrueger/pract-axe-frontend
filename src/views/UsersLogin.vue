@@ -32,7 +32,7 @@ export default {
 <template>
   <div class="login container">
     <div class="text-center">
-      <h1 class="text-center">Login</h1>
+      <h1>Login</h1>
       <router-link to="/signup">Sign up for an account</router-link>
     </div>
     <form v-on:submit.prevent="submit()">
