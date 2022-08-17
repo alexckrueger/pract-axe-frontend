@@ -30,21 +30,24 @@ export default {
 </script>
 
 <template>
-  <div class="login">
+  <div class="login container">
+    <div class="text-center">
+      <h1 class="text-center">Login</h1>
+      <router-link to="/signup">Sign up for an account</router-link>
+    </div>
     <form v-on:submit.prevent="submit()">
-      <h1>Login</h1>
       <ul>
         <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
       </ul>
-      <div>
-        <label>Email:</label>
-        <input type="email" v-model="newSessionParams.email" />
+      <div class="mb-3">
+        <label for="InputEmail1" class="form-label">Email address</label>
+        <input type="email" v-model="newSessionParams.email" class="form-control" />
       </div>
-      <div>
-        <label>Password:</label>
-        <input type="password" v-model="newSessionParams.password" />
+      <div class="mb-3">
+        <label for="InputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" v-model="newSessionParams.password" />
       </div>
-      <input type="submit" value="Submit" />
+      <button type="submit" class="btn btn-dark" value="Submit">Submit</button>
     </form>
   </div>
 </template>
