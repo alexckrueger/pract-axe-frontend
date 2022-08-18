@@ -33,40 +33,45 @@ export default {
 </script>
 
 <template>
-  <div class="TrainingsShow">
-    <h1>{{ training.name }}</h1>
-    <router-link :to="`/trainings/${this.$route.params.id}/edit`">Continue Training</router-link>
+  <div class="TrainingsShow container pt-3 text-center">
+    <div class="col"></div>
 
-    <table class="table">
+    <router-link class="btn btn-dark" :to="`/trainings/${this.$route.params.id}/edit`">Continue Training</router-link>
+    <table class="table table-bordered mt-3">
       <thead>
         <tr>
-          <th></th>
-          <th>Hatchet</th>
-          <th>Big Axe</th>
+          <th colspan="3">{{ training.name }}</th>
+        </tr>
+      </thead>
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Hatchet</th>
+          <th scope="col">Big Axe</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Throw Count</td>
+          <th scope="row">Throw Count</th>
           <td>{{ training.hatchet_throws.throw_count }}</td>
           <td>{{ training.big_axe_throws.throw_count }}</td>
         </tr>
         <tr>
-          <td>Average Axe</td>
+          <th scope="row">Average Axe</th>
           <td v-if="training.hatchet_throws.throw_count > 0">{{ training.hatchet_throws.average_axe }}</td>
           <td v-else>-</td>
           <td v-if="training.big_axe_throws.throw_count > 0">{{ training.big_axe_throws.average_axe }}</td>
           <td v-else>-</td>
         </tr>
         <tr>
-          <td>Bullseyes</td>
+          <th scope="row">Bullseye Accuracy</th>
           <td v-if="training.hatchet_throws.bullseye_accuracy > 0">{{ training.hatchet_throws.bullseye_accuracy }}%</td>
           <td v-else>-</td>
           <td v-if="training.big_axe_throws.bullseye_accuracy > 0">{{ training.big_axe_throws.bullseye_accuracy }}%</td>
           <td v-else>-</td>
         </tr>
         <tr>
-          <td>Clutches</td>
+          <th scope="row">Clutch Accuracy</th>
           <td v-if="training.hatchet_throws.clutch_accuracy > 0">{{ training.hatchet_throws.clutch_accuracy }}%</td>
           <td v-else>-</td>
           <td v-if="training.big_axe_throws.clutch_accuracy > 0">{{ training.big_axe_throws.clutch_accuracy }}%</td>
@@ -77,13 +82,13 @@ export default {
 
     <br />
 
-    <a href="">Share with a friend! (coming soon)</a>
+    <a class="btn btn-dark" href="">Share with a friend! (coming soon)</a>
     <!-- Some 3rd party library that shares a custom image/text with a text message? -->
 
-    <table class="table">
+    <table class="table table-striped mt-3">
       <thead>
         <tr>
-          <th>Throw</th>
+          <th>Throw #</th>
           <th>Points</th>
           <th>Throw type</th>
           <th>Clutch called</th>

@@ -41,7 +41,7 @@ export default {
   <div class="TrainingsIndex container text-center">
     <h1>My Trainings</h1>
     <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="Training Name" />
+      <input type="text" class="form-control" placeholder="Training Name" v-model="newTraining.name" />
       <button class="btn btn-dark" type="button" v-on:click="createTraining()">Start New Training</button>
     </div>
     <p v-if="errorMessage" style="color: red">{{ errorMessage }}</p>
@@ -50,6 +50,7 @@ export default {
       <thead>
         <tr>
           <th scope="col">Training</th>
+          <th scope="col">Date</th>
           <th scope="col">Avg. Axe</th>
           <th scope="col" colspan="4">Hatchet</th>
           <th scope="col" colspan="4">Big Axe</th>
@@ -60,6 +61,7 @@ export default {
           <th scope="row">
             <router-link :to="`/trainings/${training.id}`">{{ training.name }}</router-link>
           </th>
+          <td>{{ training.friendly_created_at }}</td>
           <td>{{ training.average_axe }}</td>
           <td v-if="training.hatchet_throws.throw_count > 0">{{ training.hatchet_throws.throw_count }}</td>
           <td v-else>-</td>
