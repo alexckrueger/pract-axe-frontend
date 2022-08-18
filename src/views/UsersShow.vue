@@ -31,7 +31,7 @@ export default {
       <div v-if="user.count_of_trainings > 0">
         <p>Sessions: {{ user.count_of_trainings }}</p>
         <p>Axes Thrown: {{ user.throw_count }}</p>
-        <router-link to="/trainings">My Sessions</router-link>
+        <router-link to="/trainings">My Trainings</router-link>
       </div>
       <div v-else>
         <router-link to="/trainings">Start a Training!</router-link>

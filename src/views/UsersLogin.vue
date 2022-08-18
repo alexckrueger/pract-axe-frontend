@@ -30,11 +30,9 @@ export default {
 </script>
 
 <template>
-  <div class="login container">
-    <div class="text-center">
-      <h1>Login</h1>
-      <router-link to="/signup">Sign up for an account</router-link>
-    </div>
+  <div class="login container text-center">
+    <h1>Login</h1>
+    <router-link to="/signup">Sign up for an account</router-link>
     <form v-on:submit.prevent="submit()">
       <ul>
         <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
