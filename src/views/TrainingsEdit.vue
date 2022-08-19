@@ -96,7 +96,7 @@ export default {
             v-model="callingClutch"
             v-bind:value="false"
           />
-          <label class="btn btn-outline-dark" for="no-clutch-outlined">No Clutch</label>
+          <label class="btn btn-outline-secondary" for="no-clutch-outlined">No Clutch</label>
           <input
             type="radio"
             class="btn-check"
