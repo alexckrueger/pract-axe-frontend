@@ -64,8 +64,8 @@ export default {
         </tr>
         <tr>
           <th scope="row">Bullseye Accuracy</th>
-          <td>{{ user.hatchet_throws.bullseye_accuracy }}</td>
-          <td>{{ user.big_axe_throws.bullseye_accuracy }}</td>
+          <td>{{ user.hatchet_throws.bullseye_accuracy }}%</td>
+          <td>{{ user.big_axe_throws.bullseye_accuracy }}%</td>
         </tr>
         <tr>
           <th scope="row">Clutch Attempts</th>
@@ -74,8 +74,8 @@ export default {
         </tr>
         <tr>
           <th scope="row">Clutch Accuracy</th>
-          <td>{{ user.hatchet_throws.clutch_accuracy }}</td>
-          <td>{{ user.big_axe_throws.clutch_accuracy }}</td>
+          <td>{{ user.hatchet_throws.clutch_accuracy }}%</td>
+          <td>{{ user.big_axe_throws.clutch_accuracy }}%</td>
         </tr>
       </tbody>
     </table>
