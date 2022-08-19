@@ -56,47 +56,92 @@ export default {
 </script>
 
 <template>
-  <div class="TrainingsEdit">
-    <h1>{{ training.name }}</h1>
-
-    <input type="checkbox" v-model="throwingBigAxe" />
-    Big Axe
-    <br />
-    <input type="checkbox" v-model="callingClutch" />
-    Clutch Called
-    <br />
-    <button v-on:click="addThrow(0)">0</button>
-    <button v-on:click="addThrow(1)">1</button>
-    <button v-on:click="addThrow(3)">3</button>
-    <button v-on:click="addThrow(5)">5</button>
-    <button v-on:click="addThrow(7)">7</button>
-
-    <br />
-
-    <router-link :to="`/trainings/${training.id}`">Finish Training</router-link>
-
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Throw</th>
-          <th>Points</th>
-          <th>Throw type</th>
-          <th>Clutch called</th>
-          <th>Delete</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="axeThrow in training.throws" v-bind:key="axeThrow.id">
-          <td class="count"></td>
-          <td>
-            <b>{{ axeThrow.points }}</b>
-          </td>
-          <td>{{ throwTypeName(axeThrow) }}</td>
-          <td>{{ clutchCalledName(axeThrow) }}</td>
-          <td><button v-on:click="deleteThrow(axeThrow)">x</button></td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="TrainingsEdit container text-center">
+    <div class="row">
+      <div class="col">
+        <h1>{{ training.name }}</h1>
+        <div>
+          <!-- toggles for hatchet type -->
+          <input
+            type="radio"
+            class="btn-check"
+            name="axe-type-outlined"
+            id="hatchet-outlined"
+            autocomplete="off"
+            checked
+            v-model="throwingBigAxe"
+            v-bind:value="false"
+          />
+          <label class="btn btn-outline-primary" for="hatchet-outlined">Hatchet</label>
+          <input
+            type="radio"
+            class="btn-check"
+            name="axe-type-outlined"
+            id="big-axe-outlined"
+            autocomplete="off"
+            v-model="throwingBigAxe"
+            v-bind:value="true"
+          />
+          <label class="btn btn-outline-danger" for="big-axe-outlined">Big Axe</label>
+        </div>
+        <div>
+          <!-- toggles for clutch called -->
+          <input
+            type="radio"
+            class="btn-check"
+            name="clutch-call-outlined"
+            id="no-clutch-outlined"
+            autocomplete="off"
+            checked
+            v-model="callingClutch"
+            v-bind:value="false"
+          />
+          <label class="btn btn-outline-dark" for="no-clutch-outlined">No Clutch</label>
+          <input
+            type="radio"
+            class="btn-check"
+            name="clutch-call-outlined"
+            id="clutch-outlined"
+            autocomplete="off"
+            v-model="callingClutch"
+            v-bind:value="true"
+          />
+          <label class="btn btn-outline-success" for="clutch-outlined">Clutch Called</label>
+        </div>
+        <br />
+        <button v-on:click="addThrow(0)">0</button>
+        <button v-on:click="addThrow(1)">1</button>
+        <button v-on:click="addThrow(3)">3</button>
+        <button v-on:click="addThrow(5)">5</button>
+        <button v-on:click="addThrow(7)">7</button>
+        <br />
+        <router-link :to="`/trainings/${training.id}`">Finish Training</router-link>
+      </div>
+      <div class="col">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Throw</th>
+              <th>Points</th>
+              <th>Throw type</th>
+              <th>Clutch called</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="axeThrow in training.throws" v-bind:key="axeThrow.id">
+              <td class="count"></td>
+              <td>
+                <b>{{ axeThrow.points }}</b>
+              </td>
+              <td>{{ throwTypeName(axeThrow) }}</td>
+              <td>{{ clutchCalledName(axeThrow) }}</td>
+              <td><button v-on:click="deleteThrow(axeThrow)">x</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </template>
 
