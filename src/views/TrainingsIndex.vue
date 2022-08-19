@@ -46,14 +46,24 @@ export default {
     </div>
     <p v-if="errorMessage" style="color: red">{{ errorMessage }}</p>
 
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered table-striped align-middle">
       <thead>
         <tr>
-          <th scope="col">Training</th>
-          <th scope="col">Date</th>
-          <th scope="col">Avg. Axe</th>
+          <th scope="col" rowspan="2">Training</th>
+          <th scope="col" rowspan="2">Date</th>
+          <th scope="col" rowspan="2">Avg. Axe</th>
           <th scope="col" colspan="4">Hatchet</th>
           <th scope="col" colspan="4">Big Axe</th>
+        </tr>
+        <tr>
+          <th>Throws</th>
+          <th>Avg.</th>
+          <th>Bullseyes</th>
+          <th>Clutches</th>
+          <th>Throws</th>
+          <th>Avg.</th>
+          <th>Bullseyes</th>
+          <th>Clutches</th>
         </tr>
       </thead>
       <tbody class="table-group-divider">
