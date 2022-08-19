@@ -58,9 +58,9 @@ export default {
 <template>
   <div class="TrainingsEdit container text-center">
     <div class="row">
-      <div class="col">
+      <div class="col-md-12 col-lg-6">
         <h1>{{ training.name }}</h1>
-        <div>
+        <div class="mt-2">
           <!-- toggles for hatchet type -->
           <input
             type="radio"
@@ -84,7 +84,7 @@ export default {
           />
           <label class="btn btn-outline-danger" for="big-axe-outlined">Big Axe</label>
         </div>
-        <div>
+        <div class="mt-2">
           <!-- toggles for clutch called -->
           <input
             type="radio"
@@ -108,14 +108,14 @@ export default {
           />
           <label class="btn btn-outline-success" for="clutch-outlined">Clutch Called</label>
         </div>
-        <br />
-        <button v-on:click="addThrow(0)">0</button>
-        <button v-on:click="addThrow(1)">1</button>
-        <button v-on:click="addThrow(3)">3</button>
-        <button v-on:click="addThrow(5)">5</button>
-        <button v-on:click="addThrow(7)">7</button>
-        <br />
-        <router-link :to="`/trainings/${training.id}`">Finish Training</router-link>
+        <div class="mt-4 mb-4">
+          <button v-on:click="addThrow(0)" class="btn btn-outline-secondary p-4 fs-4 ms-1">0</button>
+          <button v-on:click="addThrow(1)" class="btn btn-outline-primary p-4 fs-4 ms-1">1</button>
+          <button v-on:click="addThrow(3)" class="btn btn-outline-danger p-4 fs-4 ms-1">3</button>
+          <button v-on:click="addThrow(5)" class="btn btn-outline-dark p-4 fs-4 ms-1">5</button>
+          <button v-on:click="addThrow(7)" class="btn btn-outline-success p-4 fs-4 ms-1">7</button>
+        </div>
+        <router-link :to="`/trainings/${training.id}`" class="btn btn-dark mb-4">Finish Training</router-link>
       </div>
       <div class="col">
         <table class="table">
